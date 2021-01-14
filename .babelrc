@@ -8,6 +8,7 @@
         "modules": false,
         "exclude": "node_modules/"
       }
-    ]
-  ]
+    ],
+    "@babel/preset-typescript"
+  ],
 }
