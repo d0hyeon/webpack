@@ -4,25 +4,26 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 
 module.exports = {
   mode: 'development',
-  entry: './src/app.js',
+  entry: './src/app.ts',
   output: {
     path: path.resolve(__dirname, "dist/"),
     filename: "[name].[contenthash].bundle.js"
   },
   resolve: {
     modules: ['node_modules'],
-    extensions: ['.js', '.json', '.css']
+    extensions: ['.js', '.ts', '.json', '.css']
   },
   module: {
     rules: [
       {
-        test: '/\.js?$/',
-        loader: 'babel-loader'
-      }, {
-        test: '/\.css?$/',
+        test: /\.(ts|js)$/,
+        loader: "babel-loader"
+      }, 
+      {
+        test: /\.css?$/,
         use: ['style-loader', 'css-loader']
       }
-    ]
+    ],
   },
   optimization: {
     usedExports: true,
