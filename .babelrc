@@ -6,6 +6,7 @@
         "useBuiltIns": "entry",
         "targets": "> 0.25%, not dead",
         "modules": false,
+        "corejs": 3
       }
     ],
     "@babel/preset-typescript"
