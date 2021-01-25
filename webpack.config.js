@@ -11,7 +11,10 @@ module.exports = {
   },
   resolve: {
     modules: ['node_modules'],
-    extensions: ['.js', '.ts', '.json', '.css']
+    extensions: ['.js', '.ts', '.json', '.css'],
+    alias: {
+      '@src': path.resolve(__dirname, 'src/')
+    }
   },
   module: {
     rules: [
@@ -28,7 +31,13 @@ module.exports = {
   optimization: {
     usedExports: true,
     splitChunks: {
-      chunks: 'all'
+      cacheGroups: {
+        common: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
     }
   },
   devServer: {
